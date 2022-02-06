@@ -2,30 +2,19 @@ import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFacto
 
 @Component({
   selector: 'app-flights-search',
-  templateUrl: './flights-search.component.html'
+  templateUrl: './flights-search.component.html',
+  styleUrls: ['./flights-search.component.scss'],
 })
 export class FlightsSearchComponent {
-
-  @ViewChild('vc', { read: ViewContainerRef, static: true })
-  viewContainer: ViewContainerRef;
-
-  constructor(
-    @Inject(Injector) private injector,
-    @Inject(ComponentFactoryResolver) private cfr) { }
+  constructor(private vcref: ViewContainerRef, private cfr: ComponentFactoryResolver) { }
 
   search(): void {
-    alert('Not implemented for this demo!');
+    alert('Search');
   }
 
-  terms(): void {
-    import('../lazy/lazy.component')
-      .then(m => m.LazyComponent)
-      .then(comp => {
-        const factory = this.cfr.resolveComponentFactory(comp);
-        this.viewContainer.createComponent(factory, null, this.injector);
-      });
-
+  async terms() {
+    const { LazyComponent } = await import('../lazy/lazy.component');
+    this.vcref.clear();
+    this.vcref.createComponent(this.cfr.resolveComponentFactory(LazyComponent));
   }
-
-
 }

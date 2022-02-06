@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run start:shell",
-    "start:shell": "ng serve shell  -o --port 5000",
+    "start:shell": "ng serve shell -o --port 5000",
     "start:mfe1": "ng serve mfe1 -o --port 3000",
     "start:all": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" ",
     "build:shell": "ng build shell --prod",
@@ -13,7 +13,8 @@
     "build": "npm run build:shell && npm run build:mfe1",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {

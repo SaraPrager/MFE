@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-not-found',
-  templateUrl: './not-found.component.html'
+  template: '<h1>Not implemented yet!</h1>'
 })
 export class NotFoundComponent implements OnInit {
 
@@ -10,5 +10,4 @@ export class NotFoundComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FlightsModule } from './flights/flights.module';
-import { APP_ROUTES } from './app.routes';
+
+const APP_ROUTES: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full'}
+];
 
 @NgModule({
   imports: [
@@ -18,7 +21,7 @@ import { APP_ROUTES } from './app.routes';
   ],
   providers: [],
   bootstrap: [
-      AppComponent
+    AppComponent
   ]
 })
 export class AppModule { }
